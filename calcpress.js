@@ -1,14 +1,14 @@
-﻿fetch('https://api.bluelytics.com.ar/v2/latest')
+const ppToAtm = 1.2;
+var blue = 0;
+
+fetch('https://api.bluelytics.com.ar/v2/latest')
     .then(response => response.json())
     .then(data => {
-        let blue = data.blue.value_buy;
+        blue = data.blue.value_buy;
         blue = (blue - (blue * 4.4 / 100)).toFixed(2);
-        localStorage.setItem("dolar", blue);
+        document.getElementById("coti1").value = blue;
+        document.getElementById("coti2").value = blue;
     })
-const ppToAtm = 1.2;
-var blue = localStorage.getItem("dolar");
-document.getElementById("coti1").value = blue;
-document.getElementById("coti2").value = blue;
 
 //función para calcular PayPal
 function paypal() {
@@ -29,7 +29,7 @@ function mpago() {
     let ars = Number(document.getElementById("ars").value);
     let coti = Number(document.getElementById("coti2").value);
     let airtm = (ars / coti) * ppToAtm;
-    let ppal = airtm + (airtm  * 5.78 / 100) + .3;
+    let ppal = airtm + (airtm * 5.78 / 100) + .3;
     let text2 = 'Necesitas recibir $' + ppal.toFixed(2) + ' en PayPal.<br>Airtm: $' + (ars / coti).toFixed(2) + '.';
     document.getElementById("resu2").innerHTML = text2;};
 document.getElementById("reset2").addEventListener("click", function() {
