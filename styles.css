@@ -3,8 +3,18 @@
     font-family: 'Abel', sans-serif;
     font-weight: lighter;
     color: #ccc;
-    background-color: #8b7152;
+    background-color: #222;
     text-align: center;
+}
+
+.container {
+    width: 20rem;
+    height: 38.8rem;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: #222;
+    border: .1rem solid #444;
+    padding: .2rem 0;
 }
 
 h1 {
@@ -13,10 +23,11 @@ h1 {
 
 h2, h3 {
     font-size: 1.2rem;
+    padding-bottom: .2rem;
 }
 
 h2, h3, p, div, button {
-    background-color: #4d3f30;
+    background-color: #444;
 }
 
 h3 {
@@ -59,4 +70,9 @@ button {
     margin: .3rem .1rem;
     border: .1rem solid #888;
     cursor: pointer;
+}
+
+hr {
+    color: #888;
+    margin: .8rem 1.5rem .2rem;
 }
