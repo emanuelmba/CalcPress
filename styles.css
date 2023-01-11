@@ -10,8 +10,7 @@
 .container {
     width: 20rem;
     height: 38.8rem;
-    margin: auto;
-    margin-top: 2rem;
+    margin: 1rem auto;
     background-color: #222;
     border: .1rem solid #444;
     padding: .2rem 0;
