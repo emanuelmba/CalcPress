@@ -15,7 +15,7 @@ function paypal() {
   let text1 = ''
   let usd = Number(document.getElementById('usd').value)
   let coti = Number(document.getElementById('coti1').value)
-  let ppal = usd - (usd * 0.17) / 100 - 0.3
+  let ppal = usd - (usd * 5.4) / 100 - 0.3
   let airtm = ppal / ppToAtm
   let mpago = airtm * coti
   if (isNaN(usd)) {
@@ -46,7 +46,7 @@ function mpago() {
   let ars = Number(document.getElementById('ars').value)
   let coti = Number(document.getElementById('coti2').value)
   let airtm = (ars / coti) * ppToAtm
-  let ppal = airtm + (airtm * 5.73) / 100 + 0.3
+  let ppal = airtm + (airtm * 5.4) / 100 + 0.3
   if (isNaN(ars)) {
     text2 = 'Por favor, ingrese un número correcto.'
   } else {
