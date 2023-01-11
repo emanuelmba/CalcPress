@@ -1,4 +1,4 @@
-const ppToAtm = 1.15
+const ppToAtm = 1.14
 var blue = 0
 
 fetch('https://api.bluelytics.com.ar/v2/latest')
@@ -15,7 +15,7 @@ function paypal() {
   let text1 = ''
   let usd = Number(document.getElementById('usd').value)
   let coti = Number(document.getElementById('coti1').value)
-  let ppal = usd - (usd * 5.4) / 100 - 0.3
+  let ppal = usd - (usd * 0.17) / 100 - 0.3
   let airtm = ppal / ppToAtm
   let mpago = airtm * coti
   if (isNaN(usd)) {
