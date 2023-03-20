@@ -19,10 +19,16 @@
         <main>
           <div>
             <h3>Calculadora de PayPal</h3>
-            <input id="usd" type="text" placeholder="Ingresar presupuesto en USD" /><br />
+            <input
+              id="usd"
+              type="text"
+              onkeypress="paypalEnter(event)"
+              placeholder="Ingresar presupuesto en USD"
+            /><br />
             <input
               id="coti1"
               type="text"
+              onkeypress="paypalEnter(event)"
               placeholder="Ingresar precio USD en Airtm"
             /><br />
             <button onclick="paypal()">Resultado</button>
@@ -33,10 +39,16 @@
           <br>
           <div>
             <h3>Calculadora de MercadoPago</h3>
-            <input id="ars" type="text" placeholder="Ingresar presupuesto en ARS" /><br />
+            <input
+              id="ars"
+              type="text"
+              onkeypress="mpagoEnter(event)"
+              placeholder="Ingresar presupuesto en ARS"
+            /><br />
             <input
               id="coti2"
               type="text"
+              onkeypress="mpagoEnter(event)"
               placeholder="Ingresar precio USD en Airtm"
             /><br />
             <button onclick="mpago()">Resultado</button>
