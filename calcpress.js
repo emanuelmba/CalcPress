@@ -1,11 +1,11 @@
-const ppToAtm = 1.14
+const ppToAtm = 1.16
 var blue = 0
 
 fetch('https://api.bluelytics.com.ar/v2/latest')
   .then((response) => response.json())
   .then((data) => {
     blue = data.blue.value_buy
-    blue = (blue - blue * 0.058).toFixed(2)
+    blue = (blue - blue * 0.0066).toFixed(2)
     document.getElementById('coti1').value = blue
     document.getElementById('coti2').value = blue
   })
