@@ -8,56 +8,51 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Creepster&family=Abel&display=swap"
-    />
+      href="https://fonts.googleapis.com/css2?family=Creepster&family=Abel&display=swap" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-        <h1>CalcPress</h1>
-        <h2>Calculadora de presupuestos</h2>
-        <main>
-          <div>
-            <h3>Calculadora de PayPal</h3>
-            <input
-              id="usd"
-              type="text"
-              onkeypress="paypalEnter(event)"
-              placeholder="Ingresar presupuesto en USD"
-            /><br />
-            <input
-              id="coti1"
-              type="text"
-              onkeypress="paypalEnter(event)"
-              placeholder="Ingresar precio USD en Airtm"
-            /><br />
-            <button onclick="paypal()">Resultado</button>
-            <button id="reset1">Reset</button>
-            <hr>
-            <p id="resu1"></p>
-          </div>
-          <br>
-          <div>
-            <h3>Calculadora de MercadoPago</h3>
-            <input
-              id="ars"
-              type="text"
-              onkeypress="mpagoEnter(event)"
-              placeholder="Ingresar presupuesto en ARS"
-            /><br />
-            <input
-              id="coti2"
-              type="text"
-              onkeypress="mpagoEnter(event)"
-              placeholder="Ingresar precio USD en Airtm"
-            /><br />
-            <button onclick="mpago()">Resultado</button>
-            <button id="reset2">Reset</button>
-            <hr>
-            <p id="resu2"></p>
-          </div>
+      <h1>CalcPress</h1>
+      <h2>Calculadora de presupuestos</h2>
+      <main>
+        <div>
+          <h3>Calculadora de PayPal</h3>
+          <input
+            id="usd"
+            type="text"
+            onkeypress="paypalEnter(event)"
+            placeholder="Ingresar presupuesto en USD" /><br />
+          <input
+            id="cotiPayPal"
+            type="text"
+            onkeypress="paypalEnter(event)"
+            placeholder="Ingresar precio USD en Airtm" /><br />
+          <button onclick="paypal()">Resultado</button>
+          <button id="resetPayPal">Reset</button>
+          <hr />
+          <p id="resultPayPal"></p>
         </div>
-    </main>
+        <br />
+        <div>
+          <h3>Calculadora de MercadoPago</h3>
+          <input
+            id="ars"
+            type="text"
+            onkeypress="mpagoEnter(event)"
+            placeholder="Ingresar presupuesto en ARS" /><br />
+          <input
+            id="cotiMpago"
+            type="text"
+            onkeypress="mpagoEnter(event)"
+            placeholder="Ingresar precio USD en Airtm" /><br />
+          <button onclick="mpago()">Resultado</button>
+          <button id="resetMpago">Reset</button>
+          <hr />
+          <p id="resultMpago"></p>
+        </div>
+      </main>
+    </div>
 
     <script src="calcpress.js"></script>
   </body>
