@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Creepster&family=Abel&display=swap" />
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
     <div class="container">
       <h1>CalcPress</h1>
@@ -19,16 +20,14 @@
         <div>
           <h3>Calculadora de PayPal</h3>
           <input
-            id="usd"
+            id="usdInput"
             type="text"
-            onkeypress="paypalEnter(event)"
             placeholder="Ingresar presupuesto en USD" /><br />
           <input
             id="cotiPayPal"
             type="text"
-            onkeypress="paypalEnter(event)"
             placeholder="Ingresar precio USD en Airtm" /><br />
-          <button onclick="paypal()">Resultado</button>
+          <button id="btnPayPal">Resultado</button>
           <button id="resetPayPal">Reset</button>
           <hr />
           <p id="resultPayPal"></p>
@@ -37,16 +36,14 @@
         <div>
           <h3>Calculadora de MercadoPago</h3>
           <input
-            id="ars"
+            id="arsInput"
             type="text"
-            onkeypress="mpagoEnter(event)"
             placeholder="Ingresar presupuesto en ARS" /><br />
           <input
             id="cotiMpago"
             type="text"
-            onkeypress="mpagoEnter(event)"
             placeholder="Ingresar precio USD en Airtm" /><br />
-          <button onclick="mpago()">Resultado</button>
+          <button id="btnMpago">Resultado</button>
           <button id="resetMpago">Reset</button>
           <hr />
           <p id="resultMpago"></p>
