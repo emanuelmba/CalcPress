@@ -1,5 +1,5 @@
-const inputs = document.querySelectorAll('#value')
-const valBlue = document.querySelectorAll('#valBlue')
+const inputs = document.querySelectorAll('.value')
+const valBlue = document.querySelectorAll('.valBlue')
 const results = document.querySelectorAll('p')
 const ppToAtm = 1.16
 let blue = 0
@@ -19,7 +19,7 @@ function paypal() {
   let inter = usd - (usd * 5.4) / 100 - 0.3
   let airtm = inter / ppToAtm
   let mpago = airtm * val
-  if (usd == '' || isNaN(usd) || val == '' || isNaN(val)) {
+  if (!usd || isNaN(usd) || !val || isNaN(val)) {
     text = 'Por favor, ingrese un número correcto.'
     reset(0)
   } else {
@@ -37,7 +37,7 @@ function mpago() {
   let airtm = ars / val
   let inter = airtm * ppToAtm
   let ppal = inter + (inter * 5.4) / 100 + 0.3
-  if (ars == '' || isNaN(ars) || val == '' || isNaN(val)) {
+  if (!ars || isNaN(ars) || !val || isNaN(val)) {
     text = 'Por favor, ingrese un número correcto.'
     reset(1)
   } else {
@@ -56,9 +56,9 @@ function reset(e) {
 
 inputs[0].addEventListener('keypress', (e) => (e.keyCode === 13 ? paypal() : null))
 valBlue[0].addEventListener('keypress', (e) => (e.keyCode === 13 ? paypal() : null))
-document.querySelector('#btnPayPal').addEventListener('click', paypal)
-document.querySelector('#resetPayPal').addEventListener('click', () => reset(0))
+document.getElementById('btnPayPal').addEventListener('click', paypal)
+document.getElementById('resetPayPal').addEventListener('click', () => reset(0))
 inputs[1].addEventListener('keypress', (e) => (e.keyCode === 13 ? mpago() : null))
 valBlue[1].addEventListener('keypress', (e) => (e.keyCode === 13 ? mpago() : null))
-document.querySelector('#btnMpago').addEventListener('click', mpago)
-document.querySelector('#resetMpago').addEventListener('click', () => reset(1))
+document.getElementById('btnMpago').addEventListener('click', mpago)
+document.getElementById('resetMpago').addEventListener('click', () => reset(1))
