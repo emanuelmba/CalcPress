@@ -78,6 +78,11 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  border-color: #aaa;
+  color: #eee;
+}
+
 hr {
   color: #888;
   margin: 0.6rem 1.6rem 0.6rem;

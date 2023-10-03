@@ -16,16 +16,16 @@ function paypal() {
   let text
   let usd = +inputs[0].value
   let val = +valBlue[0].value
-  let inter = usd - (usd * 5.4) / 100 - 0.3
-  let airtm = inter / ppToAtm
+  let received = usd - (usd * 5.4) / 100 - 0.3
+  let airtm = received / ppToAtm
   let mpago = airtm * val
   if (!usd || isNaN(usd) || !val || isNaN(val)) {
     text = 'Por favor, ingrese un número correcto.'
     reset(0)
   } else {
-    text = `Con $${usd} recibes $${inter.toFixed(2)}.<br>
-      Airtm: $${airtm.toFixed(2)}.<br>
-      MercadoPago: $${Math.round(mpago)}.`
+    text = `Con $${usd} recibes $${received.toFixed(2)}.<br>
+      En Airtm pasan a ser $${airtm.toFixed(2)}.<br>
+      MercadoPago: $${Math.round(mpago)} ARS.`
   }
   results[0].innerHTML = text
 }
@@ -35,15 +35,15 @@ function mpago() {
   let ars = +inputs[1].value
   let val = +valBlue[1].value
   let airtm = ars / val
-  let inter = airtm * ppToAtm
-  let ppal = inter + (inter * 5.4) / 100 + 0.3
+  let received = airtm * ppToAtm
+  let ppal = received + (received * 5.4) / 100 + 0.3
   if (!ars || isNaN(ars) || !val || isNaN(val)) {
     text = 'Por favor, ingrese un número correcto.'
     reset(1)
   } else {
-    text = `Para recibir $${ars}<br>
-      necesitas $${Math.ceil(ppal)} en PayPal.<br>
-      Airtm: $${airtm.toFixed(2)}.`
+    text = `Para recibir $${ars} ARS<br>
+      necesitas cobrar unos $${Math.ceil(ppal)}.<br>
+      PayPal: $${received.toFixed(2)}. Airtm: $${airtm.toFixed(2)}.`
   }
   results[1].innerHTML = text
 }
