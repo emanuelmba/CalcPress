@@ -4,13 +4,15 @@ const results = document.querySelectorAll('p')
 const ppToAtm = 1.16
 let blue = 0
 
-fetch('https://api.bluelytics.com.ar/v2/latest')
-  .then((response) => response.json())
-  .then((data) => {
-    blue = data.blue.value_buy
-    blue = (blue - blue * 0.0066).toFixed(2)
-    valBlue.forEach((e) => (e.value = blue))
-  })
+async function getBlue() {
+  const response = await fetch('https://api.bluelytics.com.ar/v2/latest')
+  const data = await response.json()
+  blue = data.blue.value_buy
+  blue = (blue - blue * 0.0066).toFixed(2)
+  valBlue.forEach((e) => (e.value = blue))
+}
+const updateBlue = setInterval(getBlue, 60000)
+getBlue()
 
 function paypal() {
   let text
@@ -54,11 +56,15 @@ function reset(e) {
   results[e].innerHTML = ''
 }
 
-inputs[0].addEventListener('keypress', (e) => (e.keyCode === 13 ? paypal() : null))
-valBlue[0].addEventListener('keypress', (e) => (e.keyCode === 13 ? paypal() : null))
 document.getElementById('btnPayPal').addEventListener('click', paypal)
 document.getElementById('resetPayPal').addEventListener('click', () => reset(0))
-inputs[1].addEventListener('keypress', (e) => (e.keyCode === 13 ? mpago() : null))
-valBlue[1].addEventListener('keypress', (e) => (e.keyCode === 13 ? mpago() : null))
+inputs[0].addEventListener('keypress', (e) => (e.keyCode === 13 ? paypal() : null))
+valBlue[0].addEventListener('keypress', (e) =>
+  e.keyCode === 13 ? paypal() : clearInterval(updateBlue)
+)
 document.getElementById('btnMpago').addEventListener('click', mpago)
 document.getElementById('resetMpago').addEventListener('click', () => reset(1))
+inputs[1].addEventListener('keypress', (e) => (e.keyCode === 13 ? mpago() : null))
+valBlue[1].addEventListener('keypress', (e) =>
+  e.keyCode === 13 ? mpago() : clearInterval(updateBlue)
+)
