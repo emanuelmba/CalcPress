@@ -11,7 +11,7 @@ async function getBlue() {
   blue = (blue - blue * 0.0066).toFixed(2)
   valBlue.forEach((e) => (e.value = blue))
 }
-const updateBlue = setInterval(getBlue, 60000)
+const updateBlue = setInterval(getBlue, 600000)
 getBlue()
 
 function paypal() {
