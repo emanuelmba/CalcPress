@@ -5,13 +5,15 @@ const ppToAtm = 1.16
 let blue = 0
 
 async function getBlue() {
-  const response = await fetch('https://api.bluelytics.com.ar/v2/latest')
+  // const response = await fetch('https://api.bluelytics.com.ar/v2/latest')
+  const response = await fetch('https://criptoya.com/api/dolar')
   const data = await response.json()
-  blue = data.blue.value_buy
-  blue = (blue - blue * 0.0066).toFixed(2)
+  // blue = data.blue.value_buy
+  blue = data.ccb
+  blue = (blue - blue * 0.048).toFixed(2)
   valBlue.forEach((e) => (e.value = blue))
 }
-const updateBlue = setInterval(getBlue, 600000)
+const updateBlue = setInterval(getBlue, 300000)
 getBlue()
 
 function paypal() {
