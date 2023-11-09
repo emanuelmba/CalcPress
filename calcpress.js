@@ -10,7 +10,7 @@ async function getBlue() {
   const data = await response.json()
   // blue = data.blue.value_buy
   blue = data.ccb
-  blue = (blue - blue * 0.048).toFixed(2)
+  blue = (blue - blue * 0.025).toFixed(2)
   valBlue.forEach((e) => (e.value = blue))
 }
 const updateBlue = setInterval(getBlue, 300000)
