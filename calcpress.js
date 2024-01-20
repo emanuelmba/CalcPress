@@ -9,7 +9,7 @@ async function getBlue() {
   const response = await fetch('https://criptoya.com/api/dolar')
   const data = await response.json()
   // blue = data.blue.value_buy
-  blue = data.ccb
+  blue = data.cripto.ccb.ask
   blue = (blue - blue * 0.025).toFixed(2)
   valBlue.forEach((e) => (e.value = blue))
 }
